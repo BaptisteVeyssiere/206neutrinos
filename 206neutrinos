@@ -1,0 +1,39 @@
+#!/usr/bin/ruby -w
+# coding: utf-8
+
+if ARGV.length != 4
+  print "USAGE\n\t\t./206neutrinos n a h sd\n\nDESCRIPTION\n\t\tn\tnumber of values\n\t\ta\tarithmetic mean\n\t\th\tharmonic mean\n\t\tsd\tstandart deviation\n"
+  exit(84)
+end
+n = ARGV[0]
+a = ARGV[1]
+h = ARGV[2]
+sd = ARGV[3]
+if n !~ /^[0-9]+$/ or a !~ /^[0-9]+$/  or h !~ /^[0-9]+$/  or sd !~ /^[0-9]+$/
+  print "Invalid number\n"
+  exit(84)
+end
+xn = ""
+print "indtast din vaerdi : "
+xn = STDIN.gets
+xn = xn.chomp
+n = n.to_i
+while xn != "ENDE"
+  n1 = n + 1
+  print "\tantal mãlinder :\t\t#{n1}\n"
+  an1 = (n.to_f * a.to_f + xn.to_f) / (n.to_f + 1)
+  hn = 1.0 / ((n.to_f / h.to_f + 1 / xn.to_f) / (n.to_f + 1))
+  qn = Math.sqrt((n.to_f * (sd.to_f ** 2 + a.to_f ** 2) + xn.to_f ** 2) / (n.to_f + 1))
+  sn = Math.sqrt(qn ** 2 - an1 ** 2)
+  printf("\tstandardafvilgelse :\t\t%.2f\n", sn)
+  printf("\taritmetisk gennemsnit :\t\t%.2f\n", an1)
+  printf("\tkvadratisk gennemsnit :\t\t%.2f\n", qn)
+  printf("\tharmonisk gennemsnit :\t\t%.2f\n\n", hn)
+  print "indtast din vaerdi : "
+  xn = STDIN.gets
+  xn = xn.chomp
+  n = n1
+  a = an1
+  h = hn
+  sd = sn
+end
