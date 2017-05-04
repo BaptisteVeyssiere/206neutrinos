@@ -21,6 +21,10 @@ xn = ""
 print "indtast din vaerdi : "
 xn = STDIN.gets
 xn = xn.chomp
+if xn.to_f < 0
+  print "Invalid harmonic"
+  exit(84)
+end
 n = n.to_i
 while xn != "ENDE"
   n1 = n + 1
@@ -36,6 +40,10 @@ while xn != "ENDE"
   print "indtast din vaerdi : "
   xn = STDIN.gets
   xn = xn.chomp
+  if xn.to_f < 0
+    print "Invalid harmonic"
+    exit(84)
+  end
   n = n1
   a = an1
   h = hn
