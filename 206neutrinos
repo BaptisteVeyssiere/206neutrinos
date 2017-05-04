@@ -9,7 +9,6 @@ n = ARGV[0]
 a = ARGV[1]
 h = ARGV[2]
 sd = ARGV[3]
-print h
 if n !~ /^[0-9]+$/ or a !~ /^[0-9]+$/  or h !~ /^[0-9]+$/  or sd !~ /^[0-9]+$/
   print "Invalid number\n"
   exit(84)
