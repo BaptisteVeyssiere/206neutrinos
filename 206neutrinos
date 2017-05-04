@@ -13,6 +13,10 @@ if n !~ /^[0-9]+$/ or a !~ /^[0-9]+$/  or h !~ /^[0-9]+$/  or sd !~ /^[0-9]+$/
   print "Invalid number\n"
   exit(84)
 end
+if h.to_f < 0
+  print "Invalid harmonic"
+  exit(84)
+end
 xn = ""
 print "indtast din vaerdi : "
 xn = STDIN.gets
