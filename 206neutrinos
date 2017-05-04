@@ -40,7 +40,7 @@ while xn != "ENDE"
   print "indtast din vaerdi : "
   xn = STDIN.gets
   xn = xn.chomp
-  if xn.to_i <= 0
+  if xn.to_i <= 0 and xn != "ENDE"
     print "Invalid harmonic"
     exit(84)
   end
